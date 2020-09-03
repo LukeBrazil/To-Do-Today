@@ -123,6 +123,7 @@ houstonButton.addEventListener('click', () => {
     getWeather(currentCity);
     document.getElementById('weatherHeader').style.display = "block";
     getEventsData(currentCity, apiDate);
+    console.log(apiDate);
 });
 
 seattleButton.addEventListener('click', () => {
@@ -163,6 +164,8 @@ const getWeather = (currentCity) => {
         weatherHumid.innerHTML = `Humidity: ${fetchResponse.main.humidity} %`;
         const weatherWind = document.getElementById('weatherWind');
         weatherWind.innerHTML = `Wind Speed: ${fetchResponse.wind.speed} mph`;
+        const weatherIcon = document.getElementById('weatherIcon');
+        weatherIcon.src = `icons/${fetchResponse.weather[0].icon}.png`;
     });
 }
 
